@@ -97,7 +97,8 @@ class Kernel extends HttpKernel
         ....
         \App\Http\Middleware\OptimizeMiddleware::class,
     ];
-}```
+}
+```
 
 ## License
 
