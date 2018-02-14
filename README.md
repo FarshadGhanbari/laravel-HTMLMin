@@ -8,3 +8,19 @@ Laravel HTMLMin is currently maintained by [Raza Mehdi](https://github.com/srmkl
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
 <a href="https://github.com/FarshadGhanbari/laravel-HTMLMin/releases"><img src="https://img.shields.io/github/release/HTMLMin/Laravel-HTMLMin.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
+
+## Installation
+
+Laravel HTMLMin requires [PHP](https://php.net) 5.5+. supports all version of Laravel.
+
+## Configuration
+
+Step 1: Create Custom Validation
+```bash
+$ php artisan make:middleware CheckType
+```
+
+
+## License
+
+Laravel HTMLMin is licensed under [The MIT License (MIT)](LICENSE).
