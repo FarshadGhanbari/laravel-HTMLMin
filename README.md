@@ -20,6 +20,8 @@ Step 1: Create Custom Validation
 $ php artisan make:middleware OptimizeMiddleware
 ```
 After above run command you will find one file on bellow location and you have to write following code:
+# app/Http/Middleware/OptimizeMiddleware.php
+
 ```bash
 <?php
 
