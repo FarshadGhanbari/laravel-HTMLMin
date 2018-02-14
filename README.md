@@ -17,7 +17,61 @@ Laravel HTMLMin requires [PHP](https://php.net) 5.5+. supports all version of La
 
 Step 1: Create Custom Validation
 ```bash
-$ php artisan make:middleware CheckType
+$ php artisan make:middleware OptimizeMiddleware
+```
+After above run command you will find one file on bellow location and you have to write following code:
+```bash
+<?php
+
+/*
+ *
+ * (c) Farshad Ghanbari <eng.ghanbari2025@gmail.com>
+ *
+ */
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class OptimizeMiddleware
+{
+    /**
+     * Handle an incoming request.
+     * (c) Farshad Ghanbari <eng.ghanbari2025@gmail.com>
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $response = $next($request);
+        $buffer = $response->getContent();
+        if (strpos($buffer, '<pre>') !== false) {
+            $replace = array(
+                '/<!--[^\[](.*?)[^\]]-->/s' => '',
+                "/<\?php/" => '<?php ',
+                "/\r/" => '',
+                "/>\n</" => '><',
+                "/>\s+\n</" => '><',
+                "/>\n\s+</" => '><',
+            );
+        } else {
+            $replace = array(
+                '/<!--[^\[](.*?)[^\]]-->/s' => '',
+                "/<\?php/" => '<?php ',
+                "/\n([\S])/" => '$1',
+                "/\r/" => '',
+                "/\n/" => '',
+                "/\t/" => '',
+                "/ +/" => ' ',
+            );
+        }
+        $buffer = preg_replace(array_keys($replace), array_values($replace), $buffer);
+        $response->setContent($buffer);
+        ini_set('zlib.output_compression', 'On');
+        return $response;
+    }
+}
 ```
 
 
