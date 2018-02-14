@@ -77,6 +77,27 @@ class OptimizeMiddleware
 ```
 After successfully write logic of middleware then we have to register this middleware on kernel file. So let's simply add this way:
 ###### app/Http/Kernel.php
+```bash
+<?php
+
+namespace App\Http;
+
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
+class Kernel extends HttpKernel
+{
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * These middleware are run during every request to your application.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        ....
+        \App\Http\Middleware\OptimizeMiddleware::class,
+    ];
+}```
 
 ## License
 
