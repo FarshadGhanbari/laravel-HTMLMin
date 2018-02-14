@@ -9,7 +9,7 @@ Laravel HTMLMin is currently maintained by [Raza Mehdi](https://github.com/srmkl
 <a href="https://github.com/FarshadGhanbari/laravel-HTMLMin/releases"><img src="https://img.shields.io/github/release/HTMLMin/Laravel-HTMLMin.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
-#### This package isn’t work on Laravel 5.6 version, Follow the tutorial for use in Laravel 5.6 :
+#### This package isn’t work on Laravel 5.6 version, for use in laravel 5.6 follow the tutorial :
 
 ## Installation
 
